@@ -2,6 +2,7 @@ package br.com.mizaeldouglas.harry_potter_app.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,15 +11,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import br.com.mizaeldouglas.harry_potter_app.R
 import br.com.mizaeldouglas.harry_potter_app.adapter.MainAdapter
 import br.com.mizaeldouglas.harry_potter_app.databinding.ActivityMainBinding
-import br.com.mizaeldouglas.harry_potter_app.model.Book
-import br.com.mizaeldouglas.harry_potter_app.model.Character
-import br.com.mizaeldouglas.harry_potter_app.model.House
-import br.com.mizaeldouglas.harry_potter_app.model.Spell
-import br.com.mizaeldouglas.harry_potter_app.service.api.RetrofitInstance
+import br.com.mizaeldouglas.harry_potter_app.view.book.BookActivity
 import br.com.mizaeldouglas.harry_potter_app.view.character.CharacterListActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import br.com.mizaeldouglas.harry_potter_app.view.spells.SpellsActivity
 
 class MainActivity : AppCompatActivity() {
     private val categories = listOf("Characters", "Books", "Spells", "Houses")
@@ -33,8 +28,6 @@ class MainActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
-
-    private lateinit var mainAdapter: MainAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,15 +50,15 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     "Books" -> {
-//                        getBooks()
+                        startActivity(Intent(this@MainActivity, BookActivity::class.java))
                     }
 
                     "Spells" -> {
-//                        getSpells()
+                        startActivity(Intent(this@MainActivity, SpellsActivity::class.java))
                     }
 
                     "Houses" -> {
-//                        getHouses()
+                        Toast.makeText(this@MainActivity, "Houses", Toast.LENGTH_SHORT).show()
                     }
                 }
 

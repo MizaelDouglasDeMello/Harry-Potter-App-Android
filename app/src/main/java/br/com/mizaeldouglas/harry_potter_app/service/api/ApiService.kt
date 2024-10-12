@@ -13,11 +13,11 @@ interface ApiService {
     suspend fun getCharacters(): Response<List<Character>>
 
     @GET("houses")
-    suspend fun getHouses(): Response<House>
+    suspend fun getHouses(): Response<List<House>>
 
     @GET("books")
-    suspend fun getBooks(): Response<Book>
+    suspend fun getBooks(): Response<List<Book>>
 
     @GET("spells")
-    suspend fun getSpells(): Response<Spell>
+    suspend fun getSpells(): Response<List<Spell>>
 }

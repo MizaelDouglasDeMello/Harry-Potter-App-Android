@@ -15,7 +15,7 @@
         android:padding="15dp">
 
         <ImageView
-            android:id="@+id/category_image"
+            android:id="@+id/spells_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -23,7 +23,7 @@
             android:src="@drawable/characters" />
 
         <TextView
-            android:id="@+id/category_name"
+            android:id="@+id/spells_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"

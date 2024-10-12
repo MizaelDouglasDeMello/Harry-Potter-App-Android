@@ -1,4 +1,4 @@
-package br.com.mizaeldouglas.harry_potter_app.adapter
+package br.com.mizaeldouglas.harry_potter_app.adapter.character
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

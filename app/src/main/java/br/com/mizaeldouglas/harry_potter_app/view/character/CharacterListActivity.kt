@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import br.com.mizaeldouglas.harry_potter_app.adapter.CharacterAdapter
+import br.com.mizaeldouglas.harry_potter_app.adapter.character.CharacterAdapter
 import br.com.mizaeldouglas.harry_potter_app.databinding.ActivityCharacterListBinding
 import br.com.mizaeldouglas.harry_potter_app.model.Character
-import br.com.mizaeldouglas.harry_potter_app.service.api.ApiService
 import br.com.mizaeldouglas.harry_potter_app.service.api.RetrofitInstance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -47,7 +46,7 @@ class CharacterListActivity : AppCompatActivity() {
 
         // Configura o RecyclerView
         binding.recyclerViewCharacter.adapter = characterAdapter
-        binding.recyclerViewCharacter.layoutManager = GridLayoutManager(this, 2)
+        binding.recyclerViewCharacter.layoutManager = GridLayoutManager(this, 1)
     }
 
     private fun getCharacters() {
@@ -66,7 +65,7 @@ class CharacterListActivity : AppCompatActivity() {
 
                 withContext(Dispatchers.Main) {
                     characterAdapter.addList(characters) // Adiciona a lista ao adaptador
-                    Log.i("apichamada", "getCharacters: ${characters.map { it.fullName }}") // Log para verificar os personagens
+//                    Log.i("apichamada", "getCharacters: ${characters.map { it.fullName }}") // Log para verificar os personagens
                 }
             }
         }
@@ -74,6 +73,49 @@ class CharacterListActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
-        jobCharacter?.cancel() // Cancela a job quando a Activity para
+        jobCharacter?.cancel()
     }
 }
+
+
+
+
+//
+//class DetalhesActivity : AppCompatActivity() {
+//
+//    private val binding by lazy {
+//        ActivityDetalhesBinding.inflate(layoutInflater)
+//    }
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(binding.root)
+//
+//        val bundle = intent.extras
+//        if (bundle != null) {
+//            val filme = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//                bundle.getParcelable("filme", Filme::class.java)
+//            } else {
+//                bundle.getParcelable("filme") as Filme?
+//            }
+//
+//            if (filme != null) {
+//                binding.textFilmeTitulo.text = filme.title
+//                binding.txtDescricao.text = filme.overview
+//                binding.txtNota.text = String.format("%.2f", filme.vote_average)
+//
+//                val nomeFilme = filme.backdrop_path
+//                val tamanhoFilme = "w780"
+//                val urlBase = RetrofitService.BASE_URL_IMAGEM
+//
+//                val urlFilme = urlBase + tamanhoFilme + nomeFilme
+//
+//                Picasso.get()
+//                    .load(urlFilme)
+//                    .into(binding.imgPoster)
+//            }
+//
+//        }
+//
+//    }
+//}

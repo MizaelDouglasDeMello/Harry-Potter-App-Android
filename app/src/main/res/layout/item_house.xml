@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/house_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:src="@drawable/characters"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circular_image"
+            android:clipToOutline="true" />
+
+        <TextView
+            android:id="@+id/house_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:text="Ola"
+            android:textColor="@android:color/black"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/house_hogwartsHouse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="hogwartsHouse"
+            android:textColor="@android:color/darker_gray"
+            android:padding="8dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

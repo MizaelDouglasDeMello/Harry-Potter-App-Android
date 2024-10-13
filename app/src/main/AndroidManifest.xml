@@ -15,6 +15,12 @@
         android:theme="@style/Theme.HarryPotterApp"
         tools:targetApi="31">
         <activity
+            android:name=".view.character.CharacterDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.house.HouseActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.spells.SpellsActivity"
             android:exported="false" />
         <activity
@@ -24,7 +30,7 @@
             android:name=".view.book.BookActivity"
             android:exported="false" />
         <activity
-            android:name=".view.character.CharacterListActivity"
+            android:name=".view.character.CharacterActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"

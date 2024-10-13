@@ -2,7 +2,6 @@ package br.com.mizaeldouglas.harry_potter_app.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,7 +11,8 @@ import br.com.mizaeldouglas.harry_potter_app.R
 import br.com.mizaeldouglas.harry_potter_app.adapter.MainAdapter
 import br.com.mizaeldouglas.harry_potter_app.databinding.ActivityMainBinding
 import br.com.mizaeldouglas.harry_potter_app.view.book.BookActivity
-import br.com.mizaeldouglas.harry_potter_app.view.character.CharacterListActivity
+import br.com.mizaeldouglas.harry_potter_app.view.character.CharacterActivity
+import br.com.mizaeldouglas.harry_potter_app.view.house.HouseActivity
 import br.com.mizaeldouglas.harry_potter_app.view.spells.SpellsActivity
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         R.drawable.characters,
         R.drawable.book,
         R.drawable.spells,
-        R.drawable.houses
+        R.drawable.house
     )
 
     private val binding by lazy {
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             recyclerView.adapter = MainAdapter(categories, imageResIds) { category ->
                 when (category) {
                     "Characters" -> {
-                        startActivity(Intent(this@MainActivity, CharacterListActivity::class.java))
+                        startActivity(Intent(this@MainActivity, CharacterActivity::class.java))
                     }
 
                     "Books" -> {
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     "Houses" -> {
-                        Toast.makeText(this@MainActivity, "Houses", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@MainActivity, HouseActivity::class.java))
                     }
                 }
 

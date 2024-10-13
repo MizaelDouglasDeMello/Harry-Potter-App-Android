@@ -1,5 +1,6 @@
 package br.com.mizaeldouglas.harry_potter_app.view.character
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-class CharacterListActivity : AppCompatActivity() {
+class CharacterActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityCharacterListBinding.inflate(layoutInflater)
     }
@@ -41,12 +42,15 @@ class CharacterListActivity : AppCompatActivity() {
         // Inicializa o adaptador com um callback para quando um item for clicado
         characterAdapter = CharacterAdapter { character ->
             // Lógica de clique no item, se necessário
-            Log.i("Character Clicked", "Clicked: ${character.fullName}")
+            val intent = Intent(this, CharacterDetailsActivity::class.java)
+            intent.putExtra("character", character)
+
+            startActivity(intent)
         }
 
         // Configura o RecyclerView
         binding.recyclerViewCharacter.adapter = characterAdapter
-        binding.recyclerViewCharacter.layoutManager = GridLayoutManager(this, 1)
+        binding.recyclerViewCharacter.layoutManager = GridLayoutManager(this, 2)
     }
 
     private fun getCharacters() {

@@ -7,9 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-
+        <!-- Imagem de fundo -->
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/backgroundImage"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="450dp"
+            android:contentDescription="@string/background_image_desc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/clastle_hp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Outros elementos sobre a imagem de fundo -->
+        <ImageView
+            android:id="@+id/imageViewLogo"
             android:layout_width="0dp"
             android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,9 +40,8 @@
             app:layout_constraintBaseline_toBottomOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/imageViewLogo"
             app:spanCount="2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
